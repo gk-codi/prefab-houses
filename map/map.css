@@ -1,0 +1,16 @@
+
+.widthContact{
+    width: 100%;
+}
+
+.contact-input{
+    width: 100%;
+}
+
+#map {
+    height: 400px;  
+    width: 100%;  
+   }
+.below-contact{
+    margin-bottom: 30px;
+}

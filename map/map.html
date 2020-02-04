@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="map.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <title>Contact us</title>
+    <style>
+    #map {
+      height: 400px;  /* The height is 400 pixels */
+      width: 100%;  /* The width is the width of the web page */
+     }
+     </style>
+</head>
+<body>
+    <div class="container">
+            <div class="row jumbotron text-center" style="margin-top: 20px;">            
+                  <div class="container-fluid bg-grey">
+                    <h1 class="text-center">Contact us</h1>
+                    <p>Contact us and we'll get back to you within 24 hours.</p>
+                    <br><br><br>
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <h4>Company Details</h4> <br>
+                        <address>
+                          <strong>Address</strong><br>
+                          Gemmayze, Beirut<br>
+                          Sehit El Nour, Tripoli<br>
+                        </address>
+                        <address>
+                          <strong>Phone</strong><br>
+                          <abbr title="Phone">P:</abbr> (+961) 456-7890
+                        </address>
+                        <address>
+                          <strong>Available</strong><br>
+                          from 8:00am till 5pm<br>
+                        </address>
+                        <address>
+                          <strong>Email</strong><br>
+                          <a href="mailto:#">omar@codi.tech</a>
+                        </address>
+                        
+                      </div>
+                      <div class="col-sm-7">
+                        <div class="row">
+                          <div class="col-sm-6 form-group"  style="  text-align: left;">
+                            <label for="fname">Your Name: <label style="color: red;"> *</label></label> <br>
+                            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                          </div>
+                          <div class="col-sm-6 form-group" style="  text-align: left;">
+                            <label for="fname">Your Email <label style="color: red;"> *</label></label> <br>
+                            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                          </div>
+                        </div>
+                        <div style="  text-align: left;">
+                        <label for="fname">Your Message: <label style="color: red;"> *</label></label> <br>
+                        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-12 form-group">
+                           <input type="submit" value="Submit" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> 
+            </div>
+            <div class="row below-contact">
+               
+              <div id="map"></div>
+            </div>
+      </div> 
+    <!--The div element for the map -->
+   
+
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of gemmayze and tripoli
+  var option={
+    zoom: 8,
+    center:{lat:33.8547, lng:35.8623}
+  }
+  var map = new google.maps.Map(
+      document.getElementById('map'), option);
+  var marker1 = new google.maps.Marker({position: {lat:33.8951, lng:35.5095}, map: map}); 
+  var marker2 = new google.maps.Marker({position: {lat:34.4346, lng:35.8362}, map: map});
+    
+
+
+    //info for each
+    var infoWindow1 = new google.maps.InfoWindow({
+      content: '<h7>Gemmayze,Beirut</h7>'
+    });
+    var infoWindow2 = new google.maps.InfoWindow({
+      content: '<h7>Sehit El nour,Tripoli</h7>'
+    });
+
+    marker1.addListener('click',function(){
+      infoWindow1.open(map,marker1);
+    }); 
+    marker2.addListener('click',function(){
+      infoWindow2.open(map,marker2);
+    }); 
+
+  }
+</script>
+
+  
+
+     <script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrt0o-t5-Z0bHcPT-PaKDwnoWDHhM1pZo&callback=initMap">
+     </script>
+   
+</body>
+</html>
