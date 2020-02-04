@@ -1,0 +1,10 @@
+
+  ul li a:hover {
+    color: wheat !important;
+  }
+  .nav-left{
+    margin-left: auto;
+  }
+  .eachNav{
+    margin: 7px;
+  }
