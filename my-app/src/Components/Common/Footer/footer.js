@@ -1,11 +1,10 @@
-import React from 'react';
-import './App.css';
-
-function App() {
+import React from "react";
+import "./footer.css";
+const Footer= props => {
   return (
     <footer className="page-footer font-small unique-color-dark">
 
-    <div style={{backgroundColor: '#cb4154;'}}>
+    <div style={{backgroundColor: '#cb4154'}}>
       <div className="container">
   
         <div className="row py-4 d-flex align-items-center">
@@ -46,6 +45,6 @@ function App() {
   </footer>
 
   );
-}
+};
 
-export default App;
+export default Footer;

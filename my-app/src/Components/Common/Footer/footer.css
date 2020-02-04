@@ -1,0 +1,31 @@
+.fa-facebook, .fa-twitter, .fa-linkedin, .fa-google-plus, .fa-envelope{
+    color: white;
+    background-color: #cb4154;
+}
+.fa {
+    font-size: 30px;
+    width: 40px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25%;
+    margin-left: 20px;
+  }
+.fa:hover {
+    opacity: 0.7;
+  }
+.followF{
+    color: white;
+   display: flex;
+   width: 300px;
+   justify-content: space-between;
+   margin-left: -30px;
+  }
+.pos{
+   margin-top: 800px;
+}
+.s{
+    font-size: 20px;
+}
+footer{
+    margin:5px;
+}
