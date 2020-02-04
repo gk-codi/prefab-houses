@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Product</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: auto;
+    
+  }
+  .carousel{
+    width: 60%;
+    left: 10%; /*20%*/
+  }
+   
+     /*above style for carousel and bellow for grid*/
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+/* The grid: Four equal columnns that floats next to each other */
+.columnn {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.columnn img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.columnn img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columnns */
+.rows:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/*style for price slider*/
+.slidecontainer {
+  width: 40%; /*55%*/
+  padding-top: 6%;/*50px*/
+  margin-left: 14%; /*22%*/
+  margin-right: 5%; /*deleted*/
+
+}
+.slidecontainer p,.slidecontainer h5{
+  text-align: center;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-bottom: 10px;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #cb4154;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #cb4154;
+  cursor: pointer;
+}
+/*style for price slider*/
+.divide{
+  display: flex;
+}
+.rows{
+  margin-bottom: 50px;
+}
+.jumbotron{
+  padding-bottom: 2rem ;
+  margin-bottom: 0;
+}
+
+
+#demo0,#demo1,#demo2,#demo3,#rang0,#rang1,#rang2,#rang3{
+  display: none;
+}
+  </style>
+</head>
+<body>
+  <div class="rows">
+    <div class="columnn">
+      <img src="img/index1.jpg"  style="width:100%" onclick="myFunction1();">
+    </div>
+    <div class="columnn">
+      <img src="img/index2.jpg"  style="width:100%" onclick="myFunction2();">
+    </div>
+    <div class="columnn">
+      <img src="img/index3.jpg"  style="width:100%" onclick="myFunction3();">
+    </div>
+    <div class="columnn">
+      <img src="img/index4.jpg"  style="width:100%" onclick="myFunction4();">
+    </div>
+  </div>
+  
+
+
+
+
+<div class="divide">
+
+<div id="demo0" class="carousel slide carousel-fade" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo0" data-slide-to="0" class="active"></li>
+    <li data-target="#demo0" data-slide-to="1"></li>
+    <li data-target="#demo0" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/index1.jpg" alt="Type 1" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 1</h3>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="img/index2.jpg" alt="Type 2" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 2</h3>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="img/index3.jpg" alt="Type 3" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 3</h3>
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo0" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo0" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+<div class="slidecontainer jumbotron" id="rang0">
+  <h4>Please choose your specified area</h4><br><br><br>
+  <input type="range" min="0" max="1000" value="50" step="10" class="slider" id="myRange0">
+  <p>Area: <span id="emo0"></span>m2</p>
+  <h5><b>Total Price: <span id="price0"></span>$</b></h5>
+  
+</div>
+
+</div>
+
+
+<div class="divide">
+
+<div id="demo1" class="carousel slide carousel-fade" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo1" data-slide-to="0" class="active"></li>
+    <li data-target="#demo1" data-slide-to="1"></li>
+    <li data-target="#demo1" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/index2.jpg" alt="Type 1" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 1</h3>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="img/index2.jpg" alt="Type 2" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 2</h3>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="img/index2.jpg" alt="Type 3" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 3</h3>
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo1" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo1" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+<div class="slidecontainer jumbotron" id="rang1">
+  <h4>Please choose your specified area</h4><br><br><br>
+  <input type="range" min="0" max="1000" value="50" step="10" class="slider" id="myRange1">
+  <p>Area: <span id="emo1"></span>m2</p>
+  <h5><b>Total Price: <span id="price1"></span>$</b></h5>
+</div>
+
+</div>
+
+<div class="divide">
+
+<div id="demo2" class="carousel slide carousel-fade" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo2" data-slide-to="0" class="active"></li>
+    <li data-target="#demo2" data-slide-to="1"></li>
+    <li data-target="#demo2" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/index3.jpg" alt="Type 1" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 1</h3>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="img/index3.jpg" alt="Type 2" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 2</h3>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="img/index3.jpg" alt="Type 3" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 3</h3>
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo2" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo2" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+<div class="slidecontainer jumbotron" id="rang2">
+  <h4>Please choose your specified area</h4><br><br><br>
+  <input type="range" min="0" max="1000" value="50" step="10" class="slider" id="myRange2">
+  <p>Area: <span id="emo2"></span>m2</p>
+  <h5><b>Total Price: <span id="price2"></span>$</b></h5>
+</div>
+</div>
+
+<div class="divide">
+
+<div id="demo3" class="carousel slide carousel-fade" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#demo3" data-slide-to="0" class="active"></li>
+    <li data-target="#demo3" data-slide-to="1"></li>
+    <li data-target="#demo3" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/index4.jpg" alt="Type 1" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 1</h3>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="img/index4.jpg" alt="Type 2" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 2</h3>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="img/index4.jpg" alt="Type 3" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3>Type 3</h3>
+      </div>   
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo3" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo3" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+<div class="slidecontainer jumbotron" id="rang3">
+  <h4>Please choose your specified area</h4><br><br><br>
+  <input type="range" min="0" max="1000" value="50" step="10" class="slider" id="myRange3">
+  <p>Area: <span id="emo3"></span>m2</p>
+  <h5><b>Total Price: <span id="price3"></span>$</b></h5>
+</div>
+</div>
+
+
+
+
+
+<script>
+  function myFunction1() {
+    document.getElementById("demo0").style.display = "block";
+    document.getElementById("demo1").style.display = "none";
+    document.getElementById("demo2").style.display = "none";
+    document.getElementById("demo3").style.display = "none";
+    document.getElementById("rang0").style.display = "block";
+    document.getElementById("rang1").style.display = "none";
+    document.getElementById("rang2").style.display = "none";
+    document.getElementById("rang3").style.display = "none";
+    var slider = document.getElementById("myRange0");
+    var output = document.getElementById("emo0");
+    var price = document.getElementById("price0");
+    output.innerHTML = slider.value;
+    price.innerHTML = slider.value*200;
+    slider.oninput = function() {
+    output.innerHTML = this.value;
+    price.innerHTML = this.value*200;
+    }}
+
+  function myFunction2() {
+    document.getElementById("demo0").style.display = "none";
+    document.getElementById("demo1").style.display = "block";
+    document.getElementById("demo2").style.display = "none";
+    document.getElementById("demo3").style.display = "none";
+    document.getElementById("rang0").style.display = "none";
+    document.getElementById("rang1").style.display = "block";
+    document.getElementById("rang2").style.display = "none";
+    document.getElementById("rang3").style.display = "none";
+    var slider = document.getElementById("myRange1");
+    var output = document.getElementById("emo1");
+    var price = document.getElementById("price1");
+    output.innerHTML = slider.value;
+    price.innerHTML = slider.value*300;
+    slider.oninput = function() {
+    output.innerHTML = this.value;
+    price.innerHTML = this.value*300;
+    }}
+
+  function myFunction3() {
+    document.getElementById("demo0").style.display = "none";
+    document.getElementById("demo1").style.display = "none";
+    document.getElementById("demo2").style.display = "block";
+    document.getElementById("demo3").style.display = "none";
+    document.getElementById("rang0").style.display = "none";
+    document.getElementById("rang1").style.display = "none";
+    document.getElementById("rang2").style.display = "block";
+    document.getElementById("rang3").style.display = "none";
+    var slider = document.getElementById("myRange2");
+    var output = document.getElementById("emo2");
+    var price = document.getElementById("price2");
+    output.innerHTML = slider.value;
+    price.innerHTML = slider.value*1000;
+    slider.oninput = function() {
+    output.innerHTML = this.value;
+    price.innerHTML = this.value*1000;
+    }}
+
+  function myFunction4() {
+    document.getElementById("demo0").style.display = "none";
+    document.getElementById("demo1").style.display = "none";
+    document.getElementById("demo2").style.display = "none";
+    document.getElementById("demo3").style.display = "block";
+    document.getElementById("rang0").style.display = "none";
+    document.getElementById("rang1").style.display = "none";
+    document.getElementById("rang2").style.display = "none";
+    document.getElementById("rang3").style.display = "block";
+    var slider = document.getElementById("myRange3");
+    var output = document.getElementById("emo3");
+    var price = document.getElementById("price3");
+    output.innerHTML = slider.value;
+    price.innerHTML = slider.value*500;
+    slider.oninput = function() {
+    output.innerHTML = this.value;
+    price.innerHTML = this.value*500;
+    }}
+
+  
+  </script>
+</body>
+</html>
