@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import Footer from './Components/Common/Footer/footer'
 import * as serviceWorker from './serviceWorker';
-
-ReactDOM.render(<Footer />, document.getElementById('root'));
+import Subscribe from './Components/Common/subscribe/subscribe'
+ReactDOM.render(<Subscribe />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
