@@ -6,8 +6,9 @@ import Footer from './Components/Common/Footer/footer'
 import * as serviceWorker from './serviceWorker';
 import Subscribe from './Components/Common/subscribe/subscribe'
 import Navbar from './Components/Common/Nav/nav';
+import Home1 from './Components/Home/firstPart/Home1';
 
-ReactDOM.render(<Subscribe />, document.getElementById('root'));
+ReactDOM.render(<Home1 />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
