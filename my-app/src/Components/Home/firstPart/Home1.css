@@ -39,7 +39,7 @@
   margin-top: 150px;
   
 }
-.about-us{
+.Home-about-us{
   background-color: #cb4154 !important;
   text-align: center;
   margin-top: 20px;
@@ -91,13 +91,13 @@
 }
 
 
-.container {
+.Home-container {
   width: 100%;
   height: 1px;
   background-color: black;
   position: relative;
 }
-.circle1, .circle2, .circle3, .circle4 {
+.Home-circle1, .Home-circle2, .Home-circle3, .Home-circle4 {
   display: inline-block;
   vertical-align: middle;
   width: 30px;
@@ -106,22 +106,22 @@
   border: solid 1px black;
   border-radius: 50%;
 }
-.circle1{
+.Home-circle1{
   position: absolute;
   top: -15px;
   left: calc(13% - 5px);
 }
-.circle2{
+.Home-circle2{
   position: absolute;
   top: -15px;
   left: calc(36% - 5px);
 }
-.circle3{
+.Home-circle3{
   position: absolute;
   top: -15px;
   left: calc(61% - 5px);
 }
-.circle4{
+.Home-circle4{
   position: absolute;
   top: -15px;
   left: calc(85% - 5px);
@@ -147,11 +147,11 @@
   bottom: -10px;
 }
 
-.blue {
+.Home-blue {
   margin-top: 20px;
   background: #cb4154;
 }
-.blue .circle1,.circle2,.circle3, .circle4 {
+.Home-blue .Home-circle1,.Home-circle2,.Home-circle3, .Home-circle4 {
   border-color: #cb4154;
 }
     

@@ -28,4 +28,22 @@ CREATE TABLE IF NOT EXISTS "Subscribe" (
 	"Location"	TEXT [50] NOT NULL,
 	"Email"	TEXT [50] NOT NULL UNIQUE
 );
+INSERT INTO "Color" VALUES (1,'black','white','red','red');
+INSERT INTO "Color" VALUES (2,'white','black','blue','blue');
+INSERT INTO "Color" VALUES (3,'pink','darkblue','darkblue','darkblue');
+INSERT INTO "Image" VALUES (1,0,'imageA');
+INSERT INTO "Image" VALUES (2,0,'imageB');
+INSERT INTO "Image" VALUES (3,0,'imageC');
+INSERT INTO "Image" VALUES (4,0,'imageD');
+INSERT INTO "Image" VALUES (5,0,'imageE');
+INSERT INTO "Image" VALUES (6,0,'imageF');
+INSERT INTO "Image" VALUES (7,0,'imageG');
+INSERT INTO "Admin" VALUES (1,'Admin-1','admin1');
+INSERT INTO "Admin" VALUES (2,'Admin-2','admin2');
+INSERT INTO "Admin" VALUES (3,'Admin-3','admin3');
+INSERT INTO "Subscribe" VALUES (1,'Beirut','ali@gmail.com');
+INSERT INTO "Subscribe" VALUES (2,'Tripoli','ahmad@gmail.com');
+INSERT INTO "Subscribe" VALUES (3,'West Bekaa','Jihad@gmail.com');
+INSERT INTO "Subscribe" VALUES (4,'Jonieh','jad123@gmail.com');
+INSERT INTO "Subscribe" VALUES (5,'saida','rita@gma.com');
 COMMIT;

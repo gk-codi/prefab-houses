@@ -21,7 +21,7 @@ const Home1= props => {
             </div>
         </div>
 
-        <div className="jumbotron about-us">
+        <div className="jumbotron Home-about-us">
             <h3>About us</h3>
             <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</div>
             <br/><br/>
@@ -33,11 +33,11 @@ const Home1= props => {
 
 
         
-        <div className="container blue">
-            <input className="circle1" /><span className="C1">1</span>
-            <input className="circle2"/><span className="C2">2</span>
-            <input className="circle3"/><span className="C3">3</span>
-            <input className="circle4"/><span className="C4">4</span>
+        <div className=" Home-container Home-blue">
+            <input className="Home-circle1" /><span className="C1">1</span>
+            <input className="Home-circle2"/><span className="C2">2</span>
+            <input className="Home-circle3"/><span className="C3">3</span>
+            <input className="Home-circle4"/><span className="C4">4</span>
            
         </div>
 
