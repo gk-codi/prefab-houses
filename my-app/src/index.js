@@ -12,10 +12,12 @@ import Picture from './Components/Modals/picture slider/picture';
 import Sponsers from './Components/Home/secondpart/sponsers';
 import AppHome from './Pages/Home/home';
 import ContactInfo from './Components/Contact us/Info/info';
+import AppContact from './Pages/Contact us/contact';
 
 
 
-ReactDOM.render(<ContactInfo/>, document.getElementById('root'));
+
+ReactDOM.render(<AppContact/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
