@@ -83,6 +83,40 @@ const TeamMember= props => {
                             </div>              
                       </div>
                   </div>
+
+                  <div className="carousel-item">
+                        <div className="row">
+                          <div className="col-md-6 padtop30">
+                                <div className="parent_circle">
+                                    <div className="parent_circle_contain">
+                                        <p>Omar Junior</p>
+                                        <p>Intern</p>
+                                        <a href="#">Know More...</a>
+                                    </div>
+                                    <div className=" child_round_circle child_round_circle_img5 ">
+                                
+                                    </div>
+                                </div>
+                        
+                            </div>        
+                      
+                  
+                            <div className="col-md-6 padtop30">
+                                <div className="parent_circle">
+                                    <div className="parent_circle_contain">
+                                        <p>Omar Osman</p>
+                                        <p>Mentor</p>
+                                        <a href="#">Know More...</a>
+                                    </div>
+                                    <div className=" child_round_circle child_round_circle_img6 ">
+                                    
+                                    </div>
+                                </div>
+                            </div>              
+                      </div>
+                  </div>
+
+
                 </div>
     
               </div>  
