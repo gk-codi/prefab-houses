@@ -11,10 +11,11 @@ import Price from './Components/Modals/price slider/price';
 import Picture from './Components/Modals/picture slider/picture';
 import Sponsers from './Components/Home/secondpart/sponsers';
 import AppHome from './Pages/Home/home';
+import TeamMember from './Components/Home/secondpart/TeamMember';
 
 
 
-ReactDOM.render(<AppHome/>, document.getElementById('root'));
+ReactDOM.render(<Sponsers/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
