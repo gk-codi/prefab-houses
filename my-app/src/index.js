@@ -12,6 +12,10 @@ import Picture from './Components/Modals/picture slider/picture';
 import Sponsers from './Components/Home/secondpart/sponsers';
 import AppHome from './Pages/Home/home';
 import TeamMember from './Components/Home/secondpart/TeamMember';
+import ContactInfo from './Components/Contact us/Info/info';
+import AppContact from './Pages/Contact us/contact';
+import SimpleMap from './Components/Contact us/map/map';
+
 
 
 
