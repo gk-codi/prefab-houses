@@ -9,8 +9,9 @@ class SimpleMap extends Component {
   
   render() {
     const mapStyles = {
-      width: '100%',
-      height: '100%',
+      width: '84%',
+      height: '84%',
+      marginLeft: '90px',
     };
    
     return (
