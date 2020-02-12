@@ -10,7 +10,7 @@ const TeamMember= props => {
     
     
     <section className="web_disigner">
-    <div className="web_disigner_contain">
+    <div className="web_disigner_contain" style={{position: 'relative'}}>
       <h1  style={{textAlign: 'center' , color:'white' }}>Our Team</h1>
       <div className="container">
         
@@ -122,14 +122,12 @@ const TeamMember= props => {
               </div>  
             </div>
            
-            <a className="left carousel-control" href="#myCarousel" data-slide="prev">
-              <span className="glyphicon glyphicon-chevron-left"></span>
-              <span className="sr-only">Previous</span>
-            </a>
-            <a className="right carousel-control" href="#myCarousel" data-slide="next">
-              <span className="glyphicon glyphicon-chevron-right"></span>
-              <span className="sr-only">Next</span>
-            </a>
+            <a className="carousel-control-prev"  href="#myCarousel" data-slide="prev">
+      <span className="carousel-control-prev-icon"></span>
+    </a>
+    <a className="carousel-control-next" href="#myCarousel" data-slide="next">
+      <span className="carousel-control-next-icon"></span>
+    </a>
           </div>                          
         </div>
       </div>

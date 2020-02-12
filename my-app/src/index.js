@@ -15,11 +15,14 @@ import TeamMember from './Components/Home/secondpart/TeamMember';
 import ContactInfo from './Components/Contact us/Info/info';
 import AppContact from './Pages/Contact us/contact';
 import SimpleMap from './Components/Contact us/map/map';
+import AppModals from './Pages/Modals/Modals';
 
 
 
 
 ReactDOM.render(<ContactInfo/>, document.getElementById('root'));
+
+
 
 
 // If you want your app to work offline and load faster, you can change
