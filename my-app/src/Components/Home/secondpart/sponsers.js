@@ -16,8 +16,8 @@ export default class Sponsers extends Component {
         speed: 500
       };
       return (
-        <div >
-          <h2 style={{fontSize: '40px', textAlign:'center' , borderBottom:'solid 1px #eee' , color: '#cb4154' }}>Sponsers</h2><br/>
+        <div style={{width:'85%',marginLeft:'100px'}}>
+          <h2 style={{fontSize: '40px', textAlign:'center' , borderBottom:'solid 1px #eee' , color: '#cb4154' }}>Sponsers</h2><br/><br/><br/>
           <Slider {...settings}>
               <div class="col-md-2 col-xs-4"><a href="#" ><img src="./images/index.jpg" alt="Image" style={{maxHeight:'80px' }}/></a></div>
               <div class="col-md-2 col-xs-4"><a href="#" ><img src="./images/index.jpg" alt="Image" style={{maxHeight:'80px' }}/></a></div>

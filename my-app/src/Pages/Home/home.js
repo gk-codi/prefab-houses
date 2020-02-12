@@ -18,10 +18,11 @@ function AppHome() {
               
               <main style={{height:"500px;"}}>
                  <Home1></Home1>
-                 <TeamMember></TeamMember>
-                 <br/>
-                 <Sponsers></Sponsers>
                  <br/><br/>
+                 <TeamMember></TeamMember>
+                 <br/><br/>
+                 <Sponsers></Sponsers>
+                 <br/><br/><br/>
               </main>
               
                  <Footer></Footer>

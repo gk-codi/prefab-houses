@@ -9,7 +9,7 @@ const TeamMember= props => {
         
     
     
-    <section className="web_disigner">
+    <section className="web_disigner" style={{width:'85%',marginLeft:'100px', borderRadius:'1%'}}>
     <div className="web_disigner_contain" style={{position: 'relative'}}>
       <h1  style={{textAlign: 'center' , color:'white' }}>Our Team</h1>
       <div className="container">
