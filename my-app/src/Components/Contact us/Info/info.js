@@ -1,7 +1,49 @@
 import React from "react";
 import './info.css';
+import axios from 'axios';
 
-const ContactInfo= props => {
+
+  
+
+
+class ContactInfo extends React.Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      message: ''
+    }
+  }
+
+
+
+
+  handleSubmit(e){
+    e.preventDefault();
+    axios({
+      method: "POST", 
+      url:"http://localhost:3002/send", 
+      data:  this.state
+    }).then((response)=>{
+      if (response.data.status === 'success'){
+        alert("Message Sent."); 
+        this.resetForm()
+      }else if(response.data.status === 'fail'){
+        alert("Message failed to send.")
+      }
+    })
+  }
+
+  resetForm(){
+    
+     this.setState({name:'' , email: '', message: ''})
+  }
+  
+render(){
+
   return (
     <div className="container">
     <div className="row jumbotron text-center" style={{marginTop: '20px'}}>            
@@ -31,32 +73,57 @@ const ContactInfo= props => {
                         </address>
                         
                       </div>
-                      <div className="col-sm-7">
+                      <form className="col-sm-7" id="contact-form" 
+                      onSubmit={this.handleSubmit.bind(this)} method="POST">
                         <div className="row">
                           <div className="col-sm-6 form-group"  style={{textAlign: 'left'}}>
                             <label for="fname">Your Name: <label style={{color: 'red'}}> *</label></label> <br/>
-                            <input className="form-control" id="name" name="name" placeholder="Name" type="text" required/>
+                            <input className="form-control" id="name" name="name" placeholder="Name" type="text" required value={this.state.name}  onChange={this.onNameChange.bind(this)}/>
                           </div>
                           <div className="col-sm-6 form-group" style={{textAlign: 'left'}}>
                             <label for="fname">Your Email <label style={{color: 'red'}}> *</label></label> <br/>
-                            <input className="form-control" id="email" name="email" placeholder="Email" type="email" required/>
+                            <input className="form-control" id="email" name="email" placeholder="Email" type="email" required value={this.state.email}  onChange={this.onEmailChange.bind(this)}/>
                           </div>
                         </div>
                         <div style={{textAlign: 'left'}}>
                         <label for="fname">Your Message: <label style={{color: 'red'}}> *</label></label> <br/>
-                        <textarea className="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br/>
+                        <textarea className="form-control" id="comments" name="comments" placeholder="Comment" rows="5" value={this.state.message}  onChange={this.onMessageChange.bind(this)}></textarea><br/>
                         </div>
                         <div className="row">
                           <div className="col-sm-12 form-group">
                            <input type="submit" value="Submit" />
                           </div>
                         </div>
-                      </div>
+                      </form>
                     </div>
                   </div> 
             </div>
         </div>
   );
-};
+
+
+  
+
+}
+  
+
+
+onNameChange(event) {
+	this.setState({name: event.target.value})
+  }
+
+  onEmailChange(event) {
+	this.setState({email: event.target.value})
+  }
+
+  onMessageChange(event) {
+	this.setState({message: event.target.value})
+  }
+
+  
+
+}
+
+
 
 export default ContactInfo;
