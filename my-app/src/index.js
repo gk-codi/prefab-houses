@@ -20,7 +20,7 @@ import AppModals from './Pages/Modals/Modals';
 
 
 
-ReactDOM.render(<AppHome/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 
 

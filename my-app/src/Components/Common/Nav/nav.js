@@ -1,5 +1,7 @@
 import React from "react";
 import "./nav.css";
+import {Link} from "react-router-dom"
+
 const Navbar= props => {
   return (
   
@@ -8,17 +10,17 @@ const Navbar= props => {
 
     <div className="navbar-header">
       
-      <a className="navbar-brand"  href="#"> <img src="logo.png" alt="logo" style={{width: '50px'}}/>&nbsp;&nbsp;PreFab Houses</a>
+      <Link className="navbar-brand"  to="/"> <img src="logo.png" alt="logo" style={{width: '50px'}}/>&nbsp;&nbsp;PreFab Houses</Link>
     </div>
     <ul className="nav navbar-nav nav-left">
       <li className="nav-item">
-        <a className="nav-link active" href="#">Home</a>
+        <Link className="nav-link active" to="/">Home</Link>
       </li>
       <li className="nav-item ">
-        <a className="nav-link"  href="#">Our Modals</a>
+        <Link className="nav-link"  to="/Models">Our Modals</Link>
       </li>
       <li className="nav-item ">
-        <a className="nav-link"  href="#">Contact us</a>
+        <Link className="nav-link"  to="/Contact">Contact us</Link>
       </li>
     </ul>
        
