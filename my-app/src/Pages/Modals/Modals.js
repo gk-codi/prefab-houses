@@ -3,6 +3,7 @@ import Footer from '../../Components/Common/Footer/footer';
 import Navbar from '../../Components/Common/Nav/nav';
 import Picture from '../../Components/Modals/picture slider/picture';
 import Price from '../../Components/Modals/price slider/price';
+import Subscribe from '../../Components/Common/subscribe/subscribe';
 
 
 
@@ -18,6 +19,7 @@ function AppModals() {
               <Price price='200'></Price> 
               <Price price='300'></Price> 
               <Footer></Footer>
+              <Subscribe></Subscribe>
               
           </body>
                

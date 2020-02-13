@@ -4,6 +4,7 @@ import Footer from '../../Components/Common/Footer/footer';
 import Navbar from '../../Components/Common/Nav/nav';
 import ContactInfo from '../../Components/Contact us/Info/info';
 import SimpleMap from '../../Components/Contact us/map/map';
+import Subscribe from '../../Components/Common/subscribe/subscribe';
 
 
 
@@ -23,6 +24,7 @@ function AppContact() {
               </main>
               
                  <Footer></Footer>
+                 <Subscribe></Subscribe>
               
           </body>
                

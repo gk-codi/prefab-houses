@@ -4,6 +4,7 @@ import Footer from '../../Components/Common/Footer/footer';
 import Navbar from '../../Components/Common/Nav/nav';
 import TeamMember from '../../Components/Home/secondpart/TeamMember';
 import Sponsers from '../../Components/Home/secondpart/sponsers';
+import Subscribe from '../../Components/Common/subscribe/subscribe';
 
 
 
@@ -26,6 +27,7 @@ function AppHome() {
               </main>
               
                  <Footer></Footer>
+                 <Subscribe></Subscribe>
               
           </body>
                
