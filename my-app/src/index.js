@@ -16,6 +16,7 @@ import ContactInfo from './Components/Contact us/Info/info';
 import AppContact from './Pages/Contact us/contact';
 import SimpleMap from './Components/Contact us/map/map';
 import AppModals from './Pages/Modals/Modals';
+import AppModals2 from './Pages/Modals/Modals2';
 
 
 

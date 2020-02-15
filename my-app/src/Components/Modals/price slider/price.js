@@ -18,7 +18,7 @@ render(){
     
     <div style={{textAlign:"center"}}>
       <h3>Please choose your specified area</h3>
-      <br/><br/>
+      
       <Slider
   styles={{
     
@@ -39,7 +39,7 @@ render(){
        
       />
       <br/><br/>
-      <div>{'Area: ' + this.state.x+' m2'}</div><br/>
+      <div>{'Area: ' + this.state.x+' m2'}</div>
       <h5><b>{'Total Price: ' + this.state.x*this.props.price +' $'}</b></h5>
     </div>
     
