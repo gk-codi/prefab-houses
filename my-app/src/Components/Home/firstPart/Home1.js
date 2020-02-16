@@ -10,7 +10,9 @@ const Home1= props => {
                 <h1 className="ml11">
                     <span className="text-wrapper">
                       <span className="line line1"></span>
-                      <div className="triangle-up"></div>
+                      <div style={{textAlign:"center"}} >
+                        <img src="logo.png" alt="logo" width="200px" />
+                      </div>
 
                       <span className="letters">|PREFAB HOUSES|</span>
                     </span>

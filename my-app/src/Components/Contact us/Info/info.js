@@ -46,14 +46,12 @@ render(){
 
   return (
     <div className="container">
-    <div className="row jumbotron text-center" style={{marginTop: '20px'}}>            
+    <div className="row jumbotron text-center" style={{marginTop: '20px', paddingBottom:"120px"}}>            
                   <div className="container-fluid bg-grey">
-                    <h1 className="text-center">Contact us</h1>
-                    <p>Contact us and we'll get back to you within 24 hours.</p>
-                    <br/><br/><br/>
+                  
                     <div className="row">
                       <div className="col-sm-5">
-                        <h4>Company Details</h4> <br/>
+                        <h3>Company Details</h3> <br/>
                         <address>
                           <strong>Address</strong><br/>
                           Gemmayze, Beirut<br/>
@@ -73,7 +71,11 @@ render(){
                         </address>
                         
                       </div>
-                      <form className="col-sm-7" id="contact-form" 
+                      <div className="col-md-7">
+                        <h3 className="text-center">Contact us</h3>
+                        <p>Contact us and we'll get back to you within 24 hours.</p>
+                        <br/>
+                        <form  id="contact-form" 
                       onSubmit={this.handleSubmit.bind(this)} method="POST">
                         <div className="row">
                           <div className="col-sm-6 form-group"  style={{textAlign: 'left'}}>
@@ -95,6 +97,8 @@ render(){
                           </div>
                         </div>
                       </form>
+                      </div>
+                      
                     </div>
                   </div> 
             </div>

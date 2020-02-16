@@ -9,7 +9,7 @@ const Subscribe= props => {
    
 <body>
 
-<button className="open-button" onClick={closeForm}>Subsucribe Now</button>
+<button className="open-button" onClick={closeForm}>Subscribe Now</button>
 {/* onClick={() => document.getElementById("myForm").style.display = "block"} */}
 <div className="form-popup" id="myForm">
   <form  className="form-container">

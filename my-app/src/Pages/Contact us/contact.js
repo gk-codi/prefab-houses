@@ -13,13 +13,16 @@ function AppContact() {
   return(
     <div>
       <br />
-      <div className="container-fluid">
+      <div className="container-fluid"> 
           <body>
               <Navbar></Navbar>
               
               <main >
+              <div>
+                    <SimpleMap></SimpleMap>
+                  </div>
                   <ContactInfo></ContactInfo>
-                  <SimpleMap></SimpleMap><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                  
                   
               </main>
               
