@@ -1,6 +1,7 @@
 import React from "react";
 import "./nav.css";
 import {Link} from "react-router-dom"
+import {NavDropdown} from 'react-bootstrap'
 
 const Navbar= props => {
   return (
@@ -14,10 +15,16 @@ const Navbar= props => {
     </div>
     <ul className="nav navbar-nav nav-left">
       <li className="nav-item">
-        <Link className="nav-link active" to="/">Home</Link>
+        <Link className="nav-link " to="/">Home</Link>
       </li>
       <li className="nav-item ">
-        <Link className="nav-link"  to="/Models">Our Modals</Link>
+      <NavDropdown title="Our Models" id="basic-nav-dropdown" className="nav-link" style={{top: '-8px' , left : '2px'}}>
+        <NavDropdown.Item href="/Models">Kit Houses</NavDropdown.Item>
+        <NavDropdown.Item href="/Models">Modular</NavDropdown.Item>
+        <NavDropdown.Item href="/Models">Panelized</NavDropdown.Item>
+        <NavDropdown.Item href="/Models">SIP</NavDropdown.Item>
+      </NavDropdown>
+       
       </li>
       <li className="nav-item ">
         <Link className="nav-link"  to="/Contact">Contact us</Link>

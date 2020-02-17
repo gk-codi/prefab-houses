@@ -1,6 +1,7 @@
 import React from "react";
 import "./subscribe.css";
 
+
 const openForm = () => document.getElementById("myForm").style.display = "none";
 const closeForm = () => document.getElementById("myForm").style.display = "block";
  
