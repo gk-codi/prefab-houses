@@ -20,7 +20,7 @@ const Navbar= props => {
       <li className="nav-item ">
       <NavDropdown title="Our Models" id="basic-nav-dropdown" className="nav-link" style={{top: '-8px' , left : '2px'}}>
         <NavDropdown.Item href="/Models">Kit Houses</NavDropdown.Item>
-        <NavDropdown.Item href="/Models">Modular</NavDropdown.Item>
+        <NavDropdown.Item href="/Models2">Modular</NavDropdown.Item>
         <NavDropdown.Item href="/Models">Panelized</NavDropdown.Item>
         <NavDropdown.Item href="/Models">SIP</NavDropdown.Item>
       </NavDropdown>

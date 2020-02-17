@@ -39,7 +39,7 @@ function AppModals2() {
       <br />
       <div className="container-fluid">
           <body>
-              {/* <Navbar></Navbar><br/> */}
+              <Navbar></Navbar><br/>
              <Picture images = {images}></Picture>
               
               <ModalsComp price='1059' img='images/Modular/modimg1.png' title='Ecocor'
