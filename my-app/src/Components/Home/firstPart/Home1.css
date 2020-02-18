@@ -180,3 +180,40 @@
   transform: scale(1.2);
 }
 
+
+.projectProcess{
+  text-align: center;
+  color: #cb4154;
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 400px){
+  .letters{
+    margin-left: 20px;
+  }
+  .C1, .C2, .C3, .C4{
+    display: none;
+  }
+  .Home-blue{
+    display: none;
+  }
+  .timeline-panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;  
+  }
+  .projectProcess{
+    margin-top: 20px;
+  }
+  .timeline{
+    margin-top: -50px;
+  }
+}

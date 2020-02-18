@@ -1,0 +1,27 @@
+{
+  "name": "prefab-houses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "backend": "cd backend && npm start",
+    "my-app": "cd my-app && npm start",
+    "start": "concurrently --kill-others-on-fail --names \"backend,my-app\" \"npm run backend\" \"npm run my-app\"",
+    "postinstall":"cd my-app && npm install && cd .. && cd backend && npm install"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghadban135/prefab-houses.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghadban135/prefab-houses/issues"
+  },
+  "homepage": "https://github.com/ghadban135/prefab-houses#readme",
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  }
+}

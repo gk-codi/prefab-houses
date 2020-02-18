@@ -11,8 +11,8 @@ const Footer= props => {
   
           <div className="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
             <div className="followF">
-              <div  className="fa fa-envelope s">&nbsp;&nbsp;Omar@codi.tech</div>
-              <div className="fa fa-phone s">&nbsp;&nbsp;(+961)1234567</div>
+              <div  className="fa fa-envelope s emailPart">&nbsp;&nbsp;Omar@codi.tech</div>
+              <div className="fa fa-phone s phonePart">&nbsp;&nbsp;(+961)1234567</div>
             </div>
           </div>
   

@@ -1,0 +1,18 @@
+.sponsorContainer{
+    width:85%;
+    margin-left:100px;
+}
+.sponsorTitle{
+    font-size: 40px;
+     text-align:center;
+     border-bottom:solid 1px #eee;
+     color: #cb4154;
+}
+
+
+@media only screen and (max-width: 400px){
+    .sponsorContainer{
+        margin-left:20px;
+
+    }
+}
