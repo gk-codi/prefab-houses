@@ -11,8 +11,9 @@
 
 
 @media only screen and (max-width: 400px){
-    .sponsorContainer{
-        margin-left:20px;
-
+    .sponsorTitle{
+        margin-right:100px;
+      
     }
+   
 }
