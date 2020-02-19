@@ -19,6 +19,6 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 export default class Picture extends React.Component {
   render() {
-    return <ImageGallery items={this.props.images} autoPlay={true} showPlayButton={false} showIndex={true} />;
+    return <ImageGallery items={this.props.images} autoPlay={true} showPlayButton={false} showFullscreenButton={false} showIndex={true} />;
   }
 }

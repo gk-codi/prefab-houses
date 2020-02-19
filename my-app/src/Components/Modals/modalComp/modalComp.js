@@ -1,5 +1,7 @@
 import React from 'react';
-import Price from './price slider/price';
+import Price from '../price slider/price';
+import "./modalComp.css"
+
 
 
 
@@ -8,7 +10,7 @@ import Price from './price slider/price';
 render(){
   return (
     
-   <div style={{display:'flex',margin:'50px'}}>
+   <div className="imgmodcont" style={{display:'flex',margin:'50px'}}>
         <img style={{flex:'55%',width:'100%',marginRight:'10px'}} src={this.props.img}/>
         <div style={{flex:'40%',display:'grid',gridColumn:'50% 50%'}}>
         <p style={{textAlign:'center',marginTop:'20px'}}><h4 style={{color:'#cb4154'}}><b>{this.props.title}</b></h4><br/>{this.props.des}</p>

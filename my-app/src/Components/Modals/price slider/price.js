@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider  from 'react-input-slider';
+import './price.css'
 
 
 
@@ -16,7 +17,7 @@ import Slider  from 'react-input-slider';
 render(){
   return (
     
-    <div style={{textAlign:"center"}}>
+    <div className="pricemod" style={{textAlign:"center"}}>
       <h3>Please choose your specified area</h3>
       
       <Slider

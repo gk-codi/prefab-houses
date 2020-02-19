@@ -3,7 +3,7 @@ import Footer from '../../Components/Common/Footer/footer';
 import Navbar from '../../Components/Common/Nav/nav';
 import Picture from '../../Components/Modals/picture slider/picture';
 import Subscribe from '../../Components/Common/subscribe/subscribe';
-import ModalsComp from '../../Components/Modals/modalComp';
+import ModalsComp from '../../Components/Modals/modalComp/modalComp';
 import './Modals.css'
 
 
