@@ -15,7 +15,6 @@ function AppHome() {
       <br />
       <div className="container-fluid">
           <body>
-              <Navbar></Navbar>
               
               <main style={{height:"500px;"}}>
                  <Home1></Home1>
@@ -26,8 +25,7 @@ function AppHome() {
                  <br/><br/><br/>
               </main>
               
-                 <Footer></Footer>
-                 <Subscribe></Subscribe>
+               
               
           </body>
                

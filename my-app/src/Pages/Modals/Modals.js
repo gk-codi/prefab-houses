@@ -7,8 +7,27 @@ import ModalsComp from '../../Components/Modals/modalComp/modalComp';
 import './Modals.css'
 
 
-function AppModals() {
+class AppModals extends React.Component {
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+
+      
+      imageModels: []
+
+    }
+  }
+  async componentDidMount(){
+
+    const responseImg = await fetch("http://localhost:8080/Image");
+    const dataImg = await responseImg.json();
+    this.setState({ imageModels : dataImg})
+  }
+  
+
+render(){
   const images = [
     {
       original: 'images/kit houses/kitimg1.png',
@@ -26,17 +45,30 @@ function AppModals() {
       description:'Sustainable Chalet-style Package Home',
     },
   ];
-
-
   return(
     <div>
       <br />
+     
       <div className="container-fluid">
-          <body>
-              <Navbar></Navbar><br/>
+          <body>   
+              <br/>
               <Picture images = {images}></Picture>
+
+            
+                  {
+                    
+              this.state.imageModels.map(item => {
+                if(item.IDproduct ==this.props.match.params.id )
+              return  <ModalsComp  price={item.Price} img={item.Image} title={item.Title} 
+              des={item.Description}></ModalsComp>
               
-              <ModalsComp price='1059' img='images/kit houses/kitimg1.png' title='Eco Friendly Log Cabin Kit Home'
+
+              })
+            }
+            
+
+           {/* 
+              <ModalsComp price={this.state.imageModels} img='images/kit houses/kitimg1.png' title='Eco Friendly Log Cabin Kit Home'
                des='Constructed in just three months, this eco-friendly log house with its North American lodge vibe features internal walls clad in wood.'></ModalsComp>
 
               <ModalsComp price='1560' img='images/kit houses/kitimg2.png' title='Low Energy Contemporary Package Home' 
@@ -45,8 +77,7 @@ function AppModals() {
               <ModalsComp price='2432' img='images/kit houses/kitimg3.png' title='Sustainable Chalet-style Package Home'
                des='This southern most orientation is complemented by the house’s most striking feature, the overhanging roof. It protects the interiors from overheating in summer through several composite tilt.'></ModalsComp>
 
-              <Footer></Footer>
-              <Subscribe></Subscribe>
+              */}
               
           </body>
                
@@ -54,6 +85,6 @@ function AppModals() {
 </div>
     </div>
   );
-}
+}}
 
 export default AppModals;

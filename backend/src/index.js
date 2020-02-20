@@ -125,7 +125,7 @@ const start = async()=>{
   app.get('/Product', async(req, res, next)=>{
     try{
       const result = await controller.ReadProduct();
-      res.send(result);
+      res.json(result);
     } catch(err){
       next(err)
     }
@@ -206,10 +206,10 @@ const start = async()=>{
   });
 
   app.get('/Image/create', async(req, res, next)=>{
-    const { image , price , idproduct } = req.query;
+    const { image , price , idproduct ,des , title} = req.query;
     try{
       
-      const result = await controller.CreateImage({image , price , idproduct });
+      const result = await controller.CreateImage({image , price , idproduct ,des ,title});
       res.json({success : true , result});
     } catch(err){
       console.log(err)
@@ -228,9 +228,9 @@ const start = async()=>{
   });
 
   app.get("/Image/update", async (req, res, next) => {
-    const { id, image , price , idproduct } = req.query;
+    const { id, image , price , idproduct , des , title} = req.query;
     try {
-      const result = await controller.UpdateImage(id, { image , price , idproduct });
+      const result = await controller.UpdateImage(id, { image , price , idproduct , des , title});
       res.json({ success: true, result });
     } catch (err) {
       next(err);

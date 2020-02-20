@@ -291,16 +291,16 @@ const initializeDatabase = async () => {
   };
 
   const CreateImage = async (props) => {
-    const { idproduct, image, price } = props
+    const { idproduct, image, price  , des , title} = props
 
-    if (!props || !image || !price || !idproduct) {
-      throw new Error(`You must provide an image, price and id product`);
+    if (!props || !image || !price || !idproduct || !des || !title) {
+      throw new Error(`You must provide an image, price , id product , description and title`);
     }
     try {
       if (!isNaN(price) && !isNaN(idproduct)) {
-        const result = await db.run(`INSERT INTO Image (Image,Price,IDproduct) VALUES ('${image}', '${price}' , '${idproduct}')`);
+        const result = await db.run(`INSERT INTO Image (Image,Price,IDproduct,Description,Title) VALUES ('${image}', '${price}' , '${idproduct}' ,'${des}' , '${title}')`);
         const id = result.stmt.lastID
-        return id
+        return id 
       } else {
         throw new Error("the id AND THE PRICE SHOULD BE A NUMBER");
 
@@ -326,28 +326,95 @@ const initializeDatabase = async () => {
   };
 
   const UpdateImage = async (id, props) => {
-    const { image, price, idproduct } = props;
-    if (!props && !(props.image && props.price && props.idproduct)) {
-      throw new Error(`You must provide a image or an price or an id product`);
+    const { image, price, idproduct ,des , title} = props;
+    if (!props && !(props.image && props.price && props.idproduct &&props.des && props.title)) {
+      throw new Error(`You must provide a image or an price or an id product or description or title`);
     }
 
     let stmt = "";
-    if (image && price && idproduct) {
+    if (image && price && idproduct && des && title) {
+      stmt = `update Image set Image = '${image}', Price = '${price}', IDproduct = '${idproduct}' , Description = '${des}' , Title = '${title}' where ID = ${id} `;
+    } else if (image && price && idproduct && !des && !title) {
       stmt = `update Image set Image = '${image}', Price = '${price}', IDproduct = '${idproduct}' where ID = ${id} `;
-      console.log(stmt);
-    } else if (image && !price && !idproduct) {
-      stmt = `update Image set Image = '${image}' where ID = ${id} `;
-    } else if (!image && !price && idproduct) {
-      stmt = `update Image set  IDproduct = '${idproduct}' where ID = ${id} `;
-    } else if (!image && price && !idproduct) {
-      stmt = `update Image set  Price = '${price}' where ID = ${id} `;
-    } else if (image && price && !idproduct) {
-      stmt = `update Image set Image = '${image}', Price = '${price}' where ID = ${id} `;
-    } else if (image && !price && idproduct) {
-      stmt = `update Image set Image = '${image}', IDproduct = '${idproduct}' where ID = ${id} `;
-    } else if (!image && price && idproduct) {
-      stmt = `update Image set IDproduct = '${idproduct}', Price = '${price}' where ID = ${id} `;
+    } else if (image && price && idproduct && !des && title) {
+      stmt = `update Image set Image = '${image}', Price = '${price}', IDproduct = '${idproduct}', Title = '${title}' where ID = ${id} `;
+    } else if (image && price && idproduct && des && !title) {
+      stmt = `update Image set Image = '${image}', Price = '${price}', IDproduct = '${idproduct}', Description = '${des}' where ID = ${id} `;
     }
+    
+    
+    else if (image && !price && !idproduct && !des && !title) {
+      stmt = `update Image set Image = '${image}' where ID = ${id} `;
+    } else if (!image && !price && idproduct && !des && !title) {
+      stmt = `update Image set  IDproduct = '${idproduct}' where ID = ${id} `;
+    } else if (!image && price && !idproduct && !des && !title) {
+      stmt = `update Image set  Price = '${price}' where ID = ${id} `;
+    } else if (image && price && !idproduct && !des && !title) {
+      stmt = `update Image set Image = '${image}', Price = '${price}' where ID = ${id} `;
+    } else if (image && !price && idproduct && !des && !title) {
+      stmt = `update Image set Image = '${image}', IDproduct = '${idproduct}' where ID = ${id} `;
+    } else if (!image && price && idproduct && !des && !title) {
+      stmt = `update Image set IDproduct = '${idproduct}', Price = '${price}' where ID = ${id} `;
+    } else if (image && price && idproduct && !des && !title) {
+      stmt = `update Image set Image = '${image}', IDproduct = '${idproduct}', Price = '${price}' where ID = ${id} `;
+    }
+
+
+    else if (!image && !price && !idproduct && des && !title) {
+      stmt = `update Image set Description = '${des}' where ID = ${id} `;
+    } else if (!image && !price && idproduct && des && !title) {
+      stmt = `update Image set  IDproduct = '${idproduct}', Description = '${des}' where ID = ${id} `;
+    } else if (!image && price && !idproduct && des && !title) {
+      stmt = `update Image set  Price = '${price}', Description = '${des}' where ID = ${id} `;
+    } else if (image && price && !idproduct && des && !title) {
+      stmt = `update Image set Image = '${image}', Price = '${price}', Description = '${des}' where ID = ${id} `;
+    } else if (image && !price && idproduct && des && !title) {
+      stmt = `update Image set Image = '${image}', IDproduct = '${idproduct}', Description = '${des}' where ID = ${id} `;
+    } else if (!image && price && idproduct && des && !title) {
+      stmt = `update Image set IDproduct = '${idproduct}', Price = '${price}',Description = '${des}' where ID = ${id} `;
+    } else if (image && !price && !idproduct && des && !title) {
+      stmt = `update Image set Image = '${image}', Description = '${des}' where ID = ${id} `;
+    } else if (image && price && idproduct && des && !title) {
+      stmt = `update Image set IDproduct = '${idproduct}', Price = '${price}', Image = '${image}', Description = '${des}' where ID = ${id} `;
+    } 
+
+
+    else if (!image && !price && !idproduct && des && title) {
+      stmt = `update Image set Description = '${des}', Title = '${title}' where ID = ${id} `;
+    } else if (!image && !price && idproduct && des && title) {
+      stmt = `update Image set  IDproduct = '${idproduct}', Description = '${des}', Title = '${title}' where ID = ${id} `;
+    } else if (!image && price && !idproduct && des && title) {
+      stmt = `update Image set  Price = '${price}', Description = '${des}', Title = '${title}' where ID = ${id} `;
+    } else if (image && price && !idproduct && des && title) {
+      stmt = `update Image set Image = '${image}', Price = '${price}', Description = '${des}', Title = '${title}' where ID = ${id} `;
+    } else if (image && !price && idproduct && des && title) {
+      stmt = `update Image set Image = '${image}', IDproduct = '${idproduct}', Description = '${des}', Title = '${title}' where ID = ${id} `;
+    } else if (!image && price && idproduct && des && title) {
+      stmt = `update Image set IDproduct = '${idproduct}', Price = '${price}',Description = '${des}', Title = '${title}' where ID = ${id} `;
+    } else if (image && !price && !idproduct && des && title) {
+      stmt = `update Image set Description = '${des}', Title = '${title}', Image = '${image}' where ID = ${id} `;
+    } 
+
+
+    else if (!image && !price && !idproduct && !des && title) {
+      stmt = `update Image set Title = '${title}' where ID = ${id} `;
+    } else if (!image && !price && idproduct && !des && title) {
+      stmt = `update Image set  IDproduct = '${idproduct}', Title = '${title}' where ID = ${id} `;
+    } else if (!image && price && !idproduct && !des && title) {
+      stmt = `update Image set  Price = '${price}', Title = '${title}' where ID = ${id} `;
+    } else if (image && price && !idproduct && !des && title) {
+      stmt = `update Image set Image = '${image}', Price = '${price}', Title = '${title}' where ID = ${id} `;
+    } else if (image && !price && idproduct && !des && title) {
+      stmt = `update Image set Image = '${image}', IDproduct = '${idproduct}', Title = '${title}' where ID = ${id} `;
+    } else if (!image && price && idproduct && !des && title) {
+      stmt = `update Image set IDproduct = '${idproduct}', Price = '${price}', Title = '${title}' where ID = ${id} `;
+    }  else if (image && !price && !idproduct && !des && title) {
+      stmt = `update Image set Image = '${image}', Title = '${title}' where ID = ${id} `;
+    } else if (image && price && idproduct && !des && title) {
+      stmt = `update Image set Image = '${image}', IDproduct = '${idproduct}', Price = '${price}', Title = '${title}' where ID = ${id} `;
+    } 
+
+
     try {
       const result = await db.run(stmt);
       console.log(result);

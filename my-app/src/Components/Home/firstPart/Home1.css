@@ -195,9 +195,11 @@
 
 
 
+
 @media only screen and (max-width: 450px){
   .letters{
-    margin-left: 20px;
+    font-size: 30px;
+    margin-left: 10px;
   }
   .C1, .C2, .C3, .C4{
     display: none;
@@ -217,3 +219,76 @@
     margin-top: -50px;
   }
 }
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 450px) and (max-width: 767px){
+  .letters{
+    font-size: 50px;
+    width: 300px;
+    margin-left: 30px;
+  }
+  .C1, .C2, .C3, .C4{
+    display: none;
+  }
+  .Home-blue{
+    display: none;
+  }
+  .timeline-panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;  
+  }
+  .projectProcess{
+    margin-top: 20px;
+  }
+  .timeline{
+    margin-top: -50px;
+  }
+  .logoclass{
+    margin-left: 20px;
+  }
+}
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 1200px){
+
+  .letters{
+    font-size: 35px;
+    width: 100px;
+    margin-left: 0px;
+  }
+  .C1, .C2, .C3, .C4{
+    display: none;
+  }
+  .Home-blue{
+    display: none;
+  }
+  .timeline-panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;  
+  }
+  .projectProcess{
+    margin-top: 20px;
+  }
+  .timeline{
+    margin-top: -50px;
+  }
+  .logoclass{
+    margin-left: 20px;
+  }
+  .gifclass{
+    margin-top: 20px;
+  }
+}
+
+
+
