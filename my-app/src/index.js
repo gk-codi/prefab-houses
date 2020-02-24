@@ -17,11 +17,13 @@ import AppContact from './Pages/Contact us/contact';
 import SimpleMap from './Components/Contact us/map/map';
 import AppModals from './Pages/Modals/Modals';
 import AppModals2 from './Pages/Modals/Modals2';
+import Admin from './Admin/AdminPanel';
+import Adminpanel from './Admin/AdminPanel';
 
 
 
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<Adminpanel/>, document.getElementById('root'));
 
 
 
