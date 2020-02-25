@@ -9,9 +9,7 @@ class Adminpanel extends  React.Component{
           products: [],
           images: [], 
           produc: [],
-          admins: [
-           
-          ],
+          admins: [],          
           sub: [],
           colors: [],
           error: "" 
@@ -47,15 +45,22 @@ class Adminpanel extends  React.Component{
               `you need both image, price, idproduct, des & title   properties to create a Image list`
             );
           }
-          const { image, price, idproduct, des, title } = props;
+          const {  price, idproduct, des, title , file} = props;
+          const body = new FormData();
+          body.append('image',file )
           const response = await fetch(
-            `http://localhost:8080/Image/create?image=${image}&price=${price}&idproduct=${idproduct}&des=${des}&title=${title}`
-          );
+            `http://localhost:8080/Image/create?price=${price}&idproduct=${idproduct}&des=${des}&title=${title}`
+         ,
+         {
+           method:"POST", 
+           body
+         }
+            );
           const result = await response.json();
           if (result.success) {
             // we reproduce the user that was created in the database, locally
             const id = result.result;
-            const imageY = { image, price, idproduct, des, title };
+            const imageY = { Image:file.name, Price:price, IDproduct:idproduct, Description:des, Title:title };
             const images = [...this.state.images, imageY];
             this.setState({ images, error: "" });
           } else {
@@ -74,7 +79,7 @@ class Adminpanel extends  React.Component{
             `http://localhost:8080/Image/delete?id=${id}`
           );
           const result = await response.json();
-          debugger;
+          /* debugger; */
           if (result.success) {
             // remove the user from the current list of users
             const images = this.state.images.filter(
@@ -153,20 +158,22 @@ class Adminpanel extends  React.Component{
     
       createProduct = async props => {
         try {
-          if (!props || !(props.typename)) {
+          if (!props || !(props.TypeName)) {
             throw new Error(
-              `you need typename properties to create a Product list`
+              `you need TypeName properties to create a Product list`
             );
           }
-          const { typename} = props;
+          const { TypeName} = props;
+          console.log(TypeName);
           const response = await fetch(
-            `http://localhost:8080/Product/create?typename=${typename}`
+            `http://localhost:8080/Product/create?typename=${TypeName}`
           );
           const result = await response.json();
+       /*    debugger; */
           if (result.success) {
             // we reproduce the user that was created in the database, locally
-            const id = result.result;
-            const productY = { typename};
+            const IDproduct = result.result;
+            const productY = { TypeName,IDproduct};
             const produc = [...this.state.produc, productY];
             this.setState({ produc, error: "" });
           } else {
@@ -185,7 +192,7 @@ class Adminpanel extends  React.Component{
             `http://localhost:8080/Product/delete?id=${id}`
           );
           const result = await response.json();
-          debugger;
+         /*  debugger; */
           if (result.success) {
             // remove the user from the current list of users
             const produc = this.state.produc.filter(
@@ -261,7 +268,7 @@ class Adminpanel extends  React.Component{
       };
     
       createAdmin = async props => {
-        debugger;
+        /* debugger; */
 
         try {
           if (!props || !props.username || !props.password) {
@@ -467,13 +474,44 @@ async componentDidMount(){
 }
 
 onSubmit =(event) => {
-  debugger;
+  /* debugger; */
   event.preventDefault();
   const form=event.target;
   const username=form.admin_user.value;
   const password=form.admin_password.value;
   this.createAdmin({username,password});
+}
+onSubmit1 =(event) => {
+  /* debugger; */
+  event.preventDefault();
+  console.log(event.target.name_model.value)
+  const form=event.target;
+    /* const IDproduct=form.id_model.value; */
+    const TypeName=form.name_model.value;
+  this.createProduct({TypeName});
+}
+onSubmit2 = async (event) => {
+  /* debugger; */
+  event.preventDefault();
+  const form=event.target;
+  
+    const idproduct=form.id_model.value;
+    const image=form.image_model.value;
+    const price=form.price_model.value;
+    const des=form.des_model.value;
+    const title=form.title_model.value;
+    const file= event.target.image_model.files[0];
+    this.createImage({idproduct,image,price,des,title , file});
 
+   /*  
+    console.log(file);
+    const body = new FormData();
+    body.append('image', file);
+    const response = await fetch("http://localhost:8080/image_model", {
+     method:'POST', 
+     body:body
+   });
+   const result = await response.json(); */
 }
 
 
@@ -513,9 +551,7 @@ render(){
                 <button onClick={event => {
                  this.deleteAdmin({
                   id:subs.ID
-                }) }}>Delete</button>
-                
-                
+                }) }}>Delete</button>            
               </tr>
             </tbody>
             ))}
@@ -529,7 +565,7 @@ render(){
         </div>
         <br/><br/>
         <div>
-        <h2 style={{textAlign:"center"}}>Products list</h2>
+        <h2 style={{textAlign:"center"}}>Models list</h2>
         <br/>
         <table className="table table-hover table-bordered">
             <thead style={{backgroundColor:"black", color:"white"}}>
@@ -551,6 +587,11 @@ render(){
             </tbody>
             ))}
           </table>
+          <form onSubmit={this.onSubmit1}>
+              {/* <input type="text" placeholder="ID Model" name="id_model"></input> */}
+              <input type="text" placeholder="Model Name" name="name_model"></input>
+              <input type="submit" value="Add"></input>
+          </form>
         </div>
       </div>
       <div className="col-sm-5" style={{margin:"20px"}}>
@@ -613,12 +654,20 @@ render(){
             </tbody>
             ))}
           </table>
-      
+          
+          <form onSubmit={this.onSubmit2}>
+              <input type="text" placeholder="ID Model" name="id_model"></input>
+              <input type="file" name="image_model"></input>
+              <input type="text" placeholder="Model Price" name="price_model"></input>
+              <input type="text" placeholder="Model Name" name="title_model"></input>
+              <input type="text" placeholder="Model Description" name="des_model"></input>
+              <input type="submit" value="Add"></input>
+          </form>
       
       </div>
 
 
-                <br/><br/><br/><br/>
+      <br/><br/><br/><br/>
 
 
       <div style={{margin:"20px", width:"60%"}}>

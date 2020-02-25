@@ -23,12 +23,12 @@ class AppModals extends React.Component {
 
     const responseImg = await fetch("http://localhost:8080/Image");
     const dataImg = await responseImg.json();
-    this.setState({ imageModels : dataImg})
+    this.setState({ imageModels : dataImg.result})
   }
   
 
 render(){
-  const images = [
+/*   const images = [
     {
       original: 'images/kit houses/kitimg1.png',
       thumbnail: 'images/kit houses/kitimg1.png',
@@ -44,7 +44,16 @@ render(){
       thumbnail: 'images/kit houses/kitimg3.png',
       description:'Sustainable Chalet-style Package Home',
     },
-  ];
+  ]; */
+
+
+  const images =  this.state.imageModels.filter(items => {
+    return items.IDproduct == this.props.match.params.id
+  }).map(item => {
+    const imageY = { thumbnail: item.Image, description: item.Title, original: item.Image }
+    return imageY;
+  })
+
   return(
     <div>
       <br />

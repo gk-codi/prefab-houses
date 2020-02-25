@@ -242,7 +242,7 @@ class App extends Component {
       this.setState({ error: err });
     }
   };
-  getProductList = async () => {
+  /* getProductList = async () => {
     try {
       const response = await fetch("http://localhost:8080/Product");
       const result = await response.json();
@@ -255,7 +255,7 @@ class App extends Component {
     } catch (err) {
       this.setState({ error: err });
     }
-  };
+  }; */
 
   createProduct = async props => {
     try {
@@ -560,7 +560,7 @@ class App extends Component {
 
     const response = await fetch("http://localhost:8080/Product");
     const data = await response.json();
-    this.setState({ products : data});
+    this.setState({ products : data.result});
 
 
     this.getImageList();
@@ -574,40 +574,42 @@ class App extends Component {
     return (
     <div className="container-fluid">
     
-    <button onClick={event => {
-      event.preventDefault();
-    
-      /* this.createImage({
-        image: 'image url', price: 222, idproduct: 2, des: 'Some description', title: 'Title of the image'
-      }) */
-      /* this.getImageList() */
-      /* this.deleteImage({
-        id:2
-      }) */
-      /* this.updateImage({
-        image: 'image url', price: 222, idproduct: 2, des: 'Some description', title: 'Title of the image', id: 2
-      }) */
-    }}>update Image</button>
+   
        <BrowserRouter>
+       <Route path='/admin'>
+
+       </Route>
+
+      <Route path='/'>
 
        <Navbar products={this.state.products}></Navbar>
 
-        <div>
-            <Switch>
-             <Route path="/" component={AppHome} exact/>
-             <Route path="/Models:id" component={AppModals}  />
-             {/* <Route path="/Models2" component={AppModals2}/>
-             <Route path="/Models3" component={AppModals3}/>
-             <Route path="/Models4" component={AppModals4}/> */}
-             <Route path="/Contact" component={AppContact}/>
+          <div>
+              <Switch>
+              <Route path="/" component={AppHome} exact/>
+              <Route path="/Models:id" component={AppModals}  />
 
-           </Switch>
-        </div> 
+             {/*  <Route path="/Models/:id" exact render={(props) => {
+              return <AppModals {...props} products={this.state.products} />
+            }} /> */}
+
+              {/* <Route path="/Models2" component={AppModals2}/>
+              <Route path="/Models3" component={AppModals3}/>
+              <Route path="/Models4" component={AppModals4}/> */}
+              <Route path="/Contact" component={AppContact}/>
+
+            </Switch>
+          </div> 
+
+        <Subscribe></Subscribe>
+
+        <Footer></Footer>
+
+      </Route>
+
       </BrowserRouter>
 
-      <Subscribe></Subscribe>
-
-      <Footer></Footer>
+      
 
       </div>
     );
