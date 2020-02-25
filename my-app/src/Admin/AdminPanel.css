@@ -39,3 +39,10 @@
     border-radius: 50px;
     width: 100px;
 }
+
+table td  a{
+    display: inline-block;
+    background-color: gray;
+    padding: 10px 20px;
+    margin: 5px;
+}
