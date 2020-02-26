@@ -1,26 +1,30 @@
 import React from "react";
 import "./subscribe.css";
-
+import {Dropdown} from 'primereact/dropdown';
 
 const openForm = () => document.getElementById("myForm").style.display = "none";
 const closeForm = () => document.getElementById("myForm").style.display = "block";
  
-  
-
-
-
+const citySelectItems = [
+  {label: 'Beirut', value: 'Beirut'},
+  {label: 'Jbeil', value: 'Jbeil'},
+  {label: 'South', value: 'South'},
+  {label: 'North', value: 'North'},
+  {label: 'Tripoli', value: 'Tripoli'}
+];
 
 
 class Subscribe extends React.Component {
+
   constructor(props){
     super(props);
     this.state = {
-        sub: [],
-        error: "" 
-  
-      }
+      city: '',
+      sub: [],
+      error: "" 
     }
-
+  }
+  
 
 createSubscribe = async props => {
   try {
@@ -48,7 +52,6 @@ createSubscribe = async props => {
   }
 };
 onSubmit =(event) => {
-  
   event.preventDefault();
   const form=event.target;
   let email=form.mail.value;
@@ -71,7 +74,10 @@ render(){
     <input type="email" placeholder="Enter Your Email" name="mail" required/>
 
     <label for="txt"><b>Location</b><br/></label>
-    <input type="text" placeholder="Enter Your City" name="txt" required/>
+    <br/>
+      <Dropdown type="text" className="dropdownlistt "  name="txt" value={this.state.city} options={citySelectItems} onChange={(e) => {this.setState({city: e.value})}} placeholder="Select a City"/>
+      
+    {/* <input type="text" placeholder="Enter Your City" name="txt" required/> */}
 
     <button type="submit" className="btn"  onClick={openForm}>Submit</button>
     <button type="button" className="btn cancel" onClick={openForm}>Close</button>
