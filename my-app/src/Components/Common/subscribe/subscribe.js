@@ -1,37 +1,57 @@
 import React from "react";
 import "./subscribe.css";
-
+import {Dropdown} from 'primereact/dropdown';
 
 const openForm = () => document.getElementById("myForm").style.display = "none";
 const closeForm = () => document.getElementById("myForm").style.display = "block";
  
-const Subscribe= props => {
-  return (
-   
-<body>
+const citySelectItems = [
+  {label: 'Beirut', value: 'B'},
+  {label: 'Jbeil', value: 'J'},
+  {label: 'South', value: 'S'},
+  {label: 'North', value: 'N'},
+  {label: 'Tripoli', value: 'T'}
+];
 
-<button className="open-button" onClick={closeForm}>Subscribe Now</button>
-{/* onClick={() => document.getElementById("myForm").style.display = "block"} */}
-<div className="form-popup" id="myForm">
-  <form  className="form-container">
-    <h1>Subsucribe</h1>
+class Subscribe extends React.Component {
 
-    <label for="mail"><b>Email</b><br/></label>
-    <input type="email" placeholder="Enter Your Email" name="mail" required/>
-
-    <label for="txt"><b>Location</b><br/></label>
-    <input type="text" placeholder="Enter Your City" name="txt" required/>
-
-    <button type="submit" className="btn">Submit</button>
-    <button type="button" className="btn cancel" onClick={openForm}>Close</button>
-  </form>
-</div>
-{/* onClick={() => document.getElementById("myForm").style.display = "none"} */}
-
-
-
-</body>
-  );
-};
-
+  constructor(props){
+    super(props);
+    this.state = {
+      city: '',
+    }
+  }
+  render() {
+    return (
+     
+  <body>
+  
+  <button className="open-button" onClick={closeForm}>Subscribe Now</button>
+  {/* onClick={() => document.getElementById("myForm").style.display = "block"} */}
+  <div className="form-popup" id="myForm">
+    <form  className="form-container">
+      <h1>Subsucribe</h1>
+  
+      <label for="mail"><b>Email</b><br/></label>
+      <input type="email" placeholder="Enter Your Email" name="mail" required/>
+  
+      <label for="txt"><b>Location</b><br/></label>
+      <br/>
+      <Dropdown type="text" className="dropdownlistt " value={this.state.city} options={citySelectItems} onChange={(e) => {this.setState({city: e.value})}} placeholder="Select a City"/>
+      
+      {/* <input type="text" placeholder="Enter Your City" name="txt" required/> */}
+  
+      <button type="submit" className="btn">Submit</button>
+      <button type="button" className="btn cancel" onClick={openForm}>Close</button>
+    </form>
+  </div>
+  {/* onClick={() => document.getElementById("myForm").style.display = "none"} */}
+  
+  
+  
+  </body>
+    );
+  };
+  
+}
 export default Subscribe;

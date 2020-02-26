@@ -19,6 +19,9 @@ import AppModals from './Pages/Modals/Modals';
 import AppModals2 from './Pages/Modals/Modals2';
 
 
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 
 ReactDOM.render(<App/>, document.getElementById('root'));
