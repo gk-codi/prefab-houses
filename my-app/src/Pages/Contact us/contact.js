@@ -15,7 +15,6 @@ function AppContact() {
       <br />
       <div className="container-fluid"> 
           <body>
-              <Navbar></Navbar>
               
               <main >
               <div>
@@ -26,8 +25,7 @@ function AppContact() {
                   
               </main>
               
-                 <Footer></Footer>
-                 <Subscribe></Subscribe>
+             
               
           </body>
                

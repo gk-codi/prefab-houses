@@ -11,7 +11,7 @@ const Home1= props => {
                     <span className="text-wrapper">
                       <span className="line line1"></span>
                       <div style={{textAlign:"center"}} >
-                        <img src="logo.png" alt="logo" width="200px" />
+                        <img className="logoclass" src="logo.png" alt="logo" width="200px" />
                       </div>
 
                       <span className="letters">|PREFAB HOUSES|</span>
@@ -19,7 +19,7 @@ const Home1= props => {
                 </h1>
             </div>
             <div className="col-md-6 gif-home">
-                <img src="gif1.gif" width="100%" alt="building houses"/>
+                <img className="gifclass" src="gif1.gif" width="100%" alt="building houses"/>
             </div>
         </div>
 

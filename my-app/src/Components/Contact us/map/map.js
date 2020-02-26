@@ -15,6 +15,7 @@ class SimpleMap extends Component {
       marginLeft: '110px',
       position:"absolute", 
       top:"70%",
+      
     };
    
     return (

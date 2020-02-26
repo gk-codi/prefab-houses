@@ -18,11 +18,15 @@ const Navbar= props => {
         <Link className="nav-link " to="/">Home</Link>
       </li>
       <li className="nav-item ">
+
       <NavDropdown title="Our Models" id="basic-nav-dropdown" className="nav-link" style={{top: '-8px' , left : '2px'}}>
-        <NavDropdown.Item href="/Models">Kit Houses</NavDropdown.Item>
-        <NavDropdown.Item href="/Models2">Modular</NavDropdown.Item>
-        <NavDropdown.Item href="/Models3">Panelized</NavDropdown.Item>
-        <NavDropdown.Item href="/Models4">SIP</NavDropdown.Item>
+        {
+          props.products.map(item => {
+          return <NavDropdown.Item href={`/Models${item.IDproduct}`}>{item.TypeName}</NavDropdown.Item>
+
+          })
+        }
+       
       </NavDropdown>
        
       </li>

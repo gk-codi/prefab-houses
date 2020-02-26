@@ -12,27 +12,27 @@ const TeamMember= props => {
           </div><br/>
           <div className="row">
           <div className="col-md-3" style={{textAlign:"center"}}>
-            <img src="Erwan Duval Manager.jpg" alt="member1"/>
+            <img className="imageSize" src="Erwan Duval Manager.jpg" alt="member1"/>
             <div><b>Erwan Duval</b></div>
             <div>Manager</div>
           </div>
         
 
           <div className="col-md-3" style={{textAlign:"center"}}>
-            <img src="Gerd Rasmussen Designer.jpg" alt="member2"/>
+            <img className="imageSize" src="Gerd Rasmussen Designer.jpg" alt="member2"/>
             <div><b>Gerd Rasmussen</b></div>
             <div>Designer</div>
           </div>
 
           <div className="col-md-3" style={{textAlign:"center"}}>
-            <img src="Minahil Khan Engineer.jpg" alt="member3"/>
+            <img className="imageSize" src="Minahil Khan Engineer.jpg" alt="member3"/>
             <div><b>Minahil Khan</b></div>
             <div>Engineer</div>
           </div>
         
 
           <div className="col-md-3" style={{textAlign:"center"}}>
-            <img src="Viorel Orășan Engineer.jpg" alt="member4"/>
+            <img className="imageSize" src="Viorel Orășan Engineer.jpg" alt="member4"/>
             <div><b>Viorel </b></div>
             <div>Engineer</div>
           </div>

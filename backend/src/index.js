@@ -1,6 +1,22 @@
 //import {createServer} from 'http';
 import app from './app';
 import initializeDatabase from './db';
+import multer from 'multer'
+import path from 'path'
+
+const multerStorage = multer.diskStorage({
+  destination: path.join( __dirname, '../public/upload'),
+  filename: (req, file, cb) => {
+    const { fieldname, originalname } = file
+    const date = Date.now()
+    // filename will be: image-1345923023436343-filename.png
+    const filename = `${fieldname}-${date}-${originalname}` 
+    cb(null, filename)
+  }
+})
+const upload = multer({ storage: multerStorage  })
+
+ 
 
 const start = async()=>{
 
@@ -27,7 +43,7 @@ const start = async()=>{
   app.get('/Subscribe', async(req, res, next)=>{
     try{
       const result = await controller.ReadSubscribe();
-      res.send(result);
+      res.json({success : true , result});
     } catch(err){
       next(err)
     }
@@ -77,7 +93,7 @@ const start = async()=>{
   app.get('/Admin', async(req, res, next)=>{
     try{
       const result = await controller.ReadAdmin();
-      res.send(result);
+      res.json({success : true , result});
     } catch(err){
       next(err)
     }
@@ -125,7 +141,7 @@ const start = async()=>{
   app.get('/Product', async(req, res, next)=>{
     try{
       const result = await controller.ReadProduct();
-      res.send(result);
+      res.json({success : true , result});
     } catch(err){
       next(err)
     }
@@ -171,7 +187,7 @@ const start = async()=>{
   app.get('/Color', async(req, res, next)=>{
     try{
       const result = await controller.ReadColor();
-      res.send(result);
+      res.json({success : true , result});
     } catch(err){
       next(err)
     }
@@ -195,7 +211,68 @@ const start = async()=>{
 
 
 
+
+  app.get('/Image', async(req, res, next)=>{
+    try{
+      const result = await controller.ReadImage();
+      const new_result = result.map(image => {
+        return {...image, Image: `http://localhost:8080/upload/${image.Image}` }
+      })
+      res.json({success : true , result: new_result});
+    } catch(err){
+      next(err)
+    }
+  });
+
+  app.post('/Image/create',upload.single('image') ,async(req, res, next)=>{
+    const {  price , idproduct ,des , title} = req.query;
+    const image = req.file&&req.file.filename;
+    console.log(price , idproduct ,des , title, image)
+    try{
+      
+      const result = await controller.CreateImage({image , price , idproduct ,des ,title});
+      res.json({success : true , result});
+    } catch(err){
+      console.log(err)
+      next(err)
+    } 
+  });
+
+  app.get("/Image/delete", async (req, res, next) => {
+    const { id } = req.query;
+    try {
+      const result = await controller.DeleteImage(id);
+      res.json({ success: true, result });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.get("/Image/update", async (req, res, next) => {
+    const { id, image , price , idproduct , des , title} = req.query;
+    try {
+      const result = await controller.UpdateImage(id, { image , price , idproduct , des , title});
+      res.json({ success: true, result });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+
+
+  /* app.post("/image_model",upload.single('image'), async (req, res, next)=>{
+    console.log(req.file)
+    console.log(req.body)
+    res.json({message:'ok'})
+  }) */
+
+
+
+
+
+
   app.use((err, req, res, next) => {
+    console.log(err)
     res.status(500).json({ success: false, message: err.message });
   });
 
