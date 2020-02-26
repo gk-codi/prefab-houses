@@ -5,8 +5,19 @@ const initializeDatabase = async () => {
   const db = await sqlite.open('./database1.sqlite');
 
 
-
-
+  const CheckAdmin=async (props)=>{
+    const { username, password } = props; 
+      const rows = await db.all(`SELECT * FROM Admin WHERE UserName = '${username}' AND UserPassword = '${password}'`)
+        if (rows.length > 0) {
+          return true;
+          
+        } else {
+          return false
+        }			
+        
+    }
+    
+  
 
 
 
@@ -456,7 +467,9 @@ const initializeDatabase = async () => {
     ReadImage,
     CreateImage,
     DeleteImage,
-    UpdateImage
+    UpdateImage,
+
+    CheckAdmin
 
 
   }

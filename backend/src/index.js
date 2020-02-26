@@ -4,6 +4,10 @@ import initializeDatabase from './db';
 import multer from 'multer'
 import path from 'path'
 
+
+
+
+
 const multerStorage = multer.diskStorage({
   destination: path.join( __dirname, '../public/upload'),
   filename: (req, file, cb) => {
@@ -13,7 +17,7 @@ const multerStorage = multer.diskStorage({
     const filename = `${fieldname}-${date}-${originalname}` 
     cb(null, filename)
   }
-})
+}) 
 const upload = multer({ storage: multerStorage  })
 
  
@@ -33,12 +37,28 @@ const start = async()=>{
   
 
 
+  
+  app.post('/auth', async (req, res, next) => {
+    const { username, password } = req.body;
+    /* var username = req.body.username;
+	  var password = req.body.password; */
+    /* const { username , password } = req.query; */
+    try{
+      const result = await controller.CheckAdmin({username , password });
+      res.json({success : true , result});
+    } catch(err){
+      next(err)
+    } 
+  });
+
+
+  
 
 
 
 
 
-
+    
 
   app.get('/Subscribe', async(req, res, next)=>{
     try{

@@ -23,7 +23,7 @@ import Adminpanel from './Admin/AdminPanel';
 
 
 
-ReactDOM.render(<Adminpanel/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 
 
