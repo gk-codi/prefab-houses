@@ -6,12 +6,13 @@ const openForm = () => document.getElementById("myForm").style.display = "none";
 const closeForm = () => document.getElementById("myForm").style.display = "block";
  
 const citySelectItems = [
-  {label: 'Beirut', value: 'B'},
-  {label: 'Jbeil', value: 'J'},
-  {label: 'South', value: 'S'},
-  {label: 'North', value: 'N'},
-  {label: 'Tripoli', value: 'T'}
+  {label: 'Beirut', value: 'Beirut'},
+  {label: 'Jbeil', value: 'Jbeil'},
+  {label: 'South', value: 'South'},
+  {label: 'North', value: 'North'},
+  {label: 'Tripoli', value: 'Tripoli'}
 ];
+
 
 class Subscribe extends React.Component {
 
@@ -19,57 +20,11 @@ class Subscribe extends React.Component {
     super(props);
     this.state = {
       city: '',
+      sub: [],
+      error: "" 
     }
   }
-  render() {
-    return (
-     
-  <body>
   
-  <button className="open-button" onClick={closeForm}>Subscribe Now</button>
-  {/* onClick={() => document.getElementById("myForm").style.display = "block"} */}
-  <div className="form-popup" id="myForm">
-    <form  className="form-container">
-      <h1>Subsucribe</h1>
-  
-      <label for="mail"><b>Email</b><br/></label>
-      <input type="email" placeholder="Enter Your Email" name="mail" required/>
-  
-      <label for="txt"><b>Location</b><br/></label>
-      <br/>
-      <Dropdown type="text" className="dropdownlistt " value={this.state.city} options={citySelectItems} onChange={(e) => {this.setState({city: e.value})}} placeholder="Select a City"/>
-      
-      {/* <input type="text" placeholder="Enter Your City" name="txt" required/> */}
-  
-      <button type="submit" className="btn">Submit</button>
-      <button type="button" className="btn cancel" onClick={openForm}>Close</button>
-    </form>
-  </div>
-  {/* onClick={() => document.getElementById("myForm").style.display = "none"} */}
-  
-  
-  
-  </body>
-    );
-  };
-  
-}
-  
-
-
-
-
-
-class Subscribe extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-        sub: [],
-        error: "" 
-  
-      }
-    }
-
 
 createSubscribe = async props => {
   try {
@@ -97,7 +52,6 @@ createSubscribe = async props => {
   }
 };
 onSubmit =(event) => {
-  
   event.preventDefault();
   const form=event.target;
   let email=form.mail.value;
@@ -120,7 +74,10 @@ render(){
     <input type="email" placeholder="Enter Your Email" name="mail" required/>
 
     <label for="txt"><b>Location</b><br/></label>
-    <input type="text" placeholder="Enter Your City" name="txt" required/>
+    <br/>
+      <Dropdown type="text" className="dropdownlistt "  name="txt" value={this.state.city} options={citySelectItems} onChange={(e) => {this.setState({city: e.value})}} placeholder="Select a City"/>
+      
+    {/* <input type="text" placeholder="Enter Your City" name="txt" required/> */}
 
     <button type="submit" className="btn"  onClick={openForm}>Submit</button>
     <button type="button" className="btn cancel" onClick={openForm}>Close</button>
