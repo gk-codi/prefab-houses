@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "backend": "cd backend && npm start",
     "my-app": "cd my-app && npm start",
-    "start": "concurrently --kill-others-on-fail --names \"backend,my-app\" \"npm run backend\" \"npm run my-app\"",
-    "postinstall":"cd my-app && npm install && cd .. && cd backend && npm install"
+    "emailbackend":"cd emailbackend && npm start",
+    "start": "concurrently --kill-others-on-fail --names \"backend,my-app,emailbackend\" \"npm run backend\" \"npm run my-app\" \"npm run emailbackend\"",
+    "postinstall": "cd my-app && npm install && cd .. && cd backend && npm install"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ghadban135/prefab-houses.git"
